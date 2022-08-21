@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SubSafe</title>
+    <!-- BootStrap Script -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f89c55355e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        line-height: 1;
+        font-weight: 400;
+      }
+      .heading-primary,
+      .heading-secondary,
+      .heading-tertiary {
+        font-weight: 700;
+        color: black;
+        letter-spacing: -0.5px;
+      }
+      .grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .grid--2-cols {
+        grid-template-columns: repeat(2,1fr);
+      }
+      .section-how {
+        padding: 9.6 rem 0;
+        background-color: white;
+      }
+      .step-number {
+        font-size: 8.6rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1.2rem;
+      }
+      .containerOne {
+        max-width: 110rem;
+        padding: 0 3.2rem;
+        margin: 0 auto;
+      }
+      .subheading {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: black;
+        text-transform: uppercase;
+        margin-bottom: 1.6rem;
+        letter-spacing: 0.75px;
+      }
+      .heading-secondary {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 2.5rem;
+      }
+      .heading-tertiary {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 3.2rem;
+      }
+      .step-img-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step-img-box::before,
+      .step-img-box::after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .step-img-box::before {
+        width: 60%;
+        padding-bottom: 60%;
+        background-color: white;
+        z-index: -2;
+      }
+      .step-img-box::after {
+        width: 45%;
+        padding-bottom: 45%;
+        background-color: white;
+        z-index: -1;
+      }
+
+      .step-img {
+        width: 100%;
+      }
+      .step-description {
+        font-size: 1.5rem;
+        line-height: 170%;
+      }
+      /* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
+
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px  */
+    font-size: 56.25%;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    /* 8px / 16px = 0.5 = 50% */
+    font-size: 50%;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    /* 3/5 = 60% + 2/5 = 40% */
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--form {
+    margin-top: 1.2rem;
+  }
+
+}
+
+
+/* BELOW 704px (Smaller tablets) */
+
+
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+
+
+/* BELOW 544px (Phones) */
+
+
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <%- include('./partials/navbar') %> 
+    <%- include('./partials/hero') %> 
+
+    <!-- Information Section -->
+    <section class="section-how">
+      <div class="containerOne">
+        <span class="subheading"></span>
+        <h2 class="heading-secondary pt-2">Your path to a safe and stress-free commute.</h2>
+      </div>
+
+      <div class="containerOne grid grid--2-cols">
+        <!-- Row 1 -->
+        <div class="step-text-box">
+          <p class="step-number">01</p>
+          <h3 class="heading-tertiary">Understanding Our Objective: </h3>
+          <p class="step-description">
+          SubSafe's mission involves creating a safer environment within subway stations. We strive to maintain stress-free commutes.
+        Safety is our top priority, as we continuously work towards providing you a smooth experience in riding the train.
+          </p>
+        </div>
+        <div class="step-img-box">
+          <img src="https://res.cloudinary.com/dkvwgvdil/image/upload/v1660586438/SubSafe/Images/Untitled_design_x8piga.png" class="step-img" alt="iPhone Design Image">
+        </div>
+
+        <!-- Row 2 -->
+        <div class="step-img-box">
+          <img src="https://res.cloudinary.com/dkvwgvdil/image/upload/v1660586438/SubSafe/Images/Untitled_design-2_opq2ck.png" class="step-img" alt="iPhone Design Image">
+        </div>
+        <div class="step-text-box">
+          <p class="step-number">02</p>
+          <h3 class="heading-tertiary">The Functionality of SubSafe: </h3>
+          <p class="step-description">
+          Utilize SubSafe to browse available stations alongside their ratings. Find out average ratings of stations, alongside their locations, fares to get in, and the experiences of others who have commuted through the station.
+          </p>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../public/javascripts/searchBarFunction.js"></script>
+  </body>
+</html>

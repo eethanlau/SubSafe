@@ -1,0 +1,40 @@
+<!-- Navigation Bar -->
+
+<nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: black" href="/"
+      >SubSafe <i class="fa-solid fa-train-subway"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <a class="nav-link" style="color: black" href="/">Home</a>
+        <a class="nav-link" style="color: black" href="/stations">Stations</a>
+        <a class="nav-link" style="color: black" href="/stations/new"
+          >New Station</a
+        >
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currentUser) { %>
+        <a class="nav-link" style="color: black" href="/login">Log In</a>
+        <a class="nav-link" style="color: black" href="/register">Sign Up</a>
+        <% } else {%>
+        <a class="nav-link" style="color: black" href="/logout">Log Out</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

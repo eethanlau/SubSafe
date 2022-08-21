@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SubSafe</title>
+    <!-- BootStrap Script -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f89c55355e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="public/stylesheets/style.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <%- include('../partials/navbar') %> <%- include('../partials/secondhero')
+    %>
+    <div class="row">
+      <h1 class="text-center mt-5">Add A New Subway Station</h1>
+      <div class="col-6 offset-3">
+        <!-- Get request link to send you back to the screen with all stations -->
+        <h5 class="mt-3">
+          <a href="/stations"
+            ><i class="fa-solid fa-arrow-left"></i>All Stations</a
+          >
+        </h5>
+        <form
+          action="/stations"
+          method="POST"
+          class="needs-validation"
+          novalidate
+          enctype="multipart/form-data"
+        >
+          <div class="mb-4 mt-4">
+            <label class="form-label" for="title">Station Name</label>
+            <input
+              class="form-control"
+              type="text"
+              id="title"
+              name="station[title]"
+              required
+            />
+            <div id="title" class="invalid-feedback">
+              Please provide a station name.
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="location">Location</label>
+            <input
+              class="form-control"
+              type="text"
+              id="location"
+              name="station[location]"
+              required
+            />
+            <div id="location" class="invalid-feedback">
+              Please provide the location of the station.
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-4">
+            <label class="form-label" for="price">Fare Amount:</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="price-label">$</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                id="price"
+                placeholder="0.00"
+                aria-label="price"
+                aria-describedby="price-label"
+                name="station[price]"
+                required
+              />
+              <div id="price" class="invalid-feedback">
+                Please provide the fare required to enter the station.
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-4">
+            <label class="form-label" for="description">Description (Please note the trains available) :</label>
+            <textarea
+              class="form-control"
+              type="text"
+              id="description"
+              name="station[description]"
+              cols="10"
+              rows="8"
+              required
+            ></textarea>
+            <div id="description" class="invalid-feedback">
+              Please provide a description of the station.
+            </div>
+          </div>
+
+          <!-- Upload Image aspect of the form -->
+          <div class="mb-5 mt-4">
+            <label for="image" class="form-label">Add Image/s</label>
+            <input type="file" class="form-control" id="image" name="image" multiple>
+          </div>
+
+          <!-- <div class="mb-5 mt-4">
+            <label class="form-label" for="image">Upload Image</label>
+            <input
+              class="form-control"
+              type="text"
+              id="image"
+              name="station[image]"
+              required
+            />
+            <div id="image" class="invalid-feedback">
+              Please provide an image of the station.
+            </div>
+          </div> -->
+
+          <!-- Button to fiew the station -->
+          <div class="mb-4 container">
+            <div class="row">
+              <button class="btn btn-dark">Add Station</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script to validate our form -->
+    <script>
+      (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>
